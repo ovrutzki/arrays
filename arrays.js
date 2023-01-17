@@ -274,8 +274,8 @@
 //     [4, 5, 6],
 //     [7, 8, 9]
 // ];
-// columnsSum = [];
 // function sumOfColumns(array) {
+//     let columnsSum = [];
 //     for (i = 0; i < array.length; i++) {
 //             let sum = 0;
 //             let rowlength = matrix[i].length;
@@ -286,9 +286,9 @@
 //         columnsSum.push(sum);
 
 //         }   
+//        return columnsSum;
 //     }     
-// sumOfColumns(matrix);
-// console.log(columnsSum);
+// console.log(sumOfColumns(matrix));
 
 // --------------------------------------------------------
 // EX2
@@ -336,10 +336,10 @@
 // sortTheArray(messArray);
 
 // --------------------------------------------------------
-// EX5
-// let array1 = [12, 13, 14, 15];
+// // EX5
+// let array1 = [1, 2, 3, 4, 5, 6, 7];
 // let shuffle = array1.sort(function() {
-// return Math.random() - 05;
+// return Math.random() - 0.5;
     
 // });
 
@@ -373,13 +373,211 @@
 
 // --------------------------------------------------------
 // EX8
-let b = " ";
-let a = "* * * * * *";
-let newstr = '';
-for (let i = 10; i > 0; i-=2) {
-    newstr = a.slice(0, i);
-    for (let j = 0; j < 5; j++) {
-        fainle = newstr.padStart(6 + j, ' ')
-    }
-    console.log(fainle);
+// let b = " ";
+// let a = "* * * * * *";
+// let newstr = '';
+// for (let i = 10; i > 0; i-=2) {
+//     newstr = a.slice(0, i);
+//     for (let j = 0; j < 5; j++) {
+//         fainle = newstr.padStart(6 + j, ' ')
+//     }
+//     console.log(fainle);
+// }
+
+// --------------------------------------------------------
+// Array Methods
+// EX2
+// 1
+// const z = [1,2,3,4,5];
+// const twoXz = z.map((num) => num*2);
+// console.log(twoXz); 
+
+// // 2
+// // const ages = [12, 4, 5, 88];
+// // const srtAges = ages.map((age) => `${age}`);
+// // console.log(srtAges); 
+
+// // 3
+// function capitalize(word){
+//     const separate = word.toUpperCase();
+//     // const capital = separate.map((l) => l.UpperCase());
+//     // const together = capital.join()
+//     console.log(separate);
+// }
+
+// capitalize('hello');
+
+// // 4
+// const employees = [
+//     {name: 'John', age: 25},
+//     {name: 'Jane', age: 30},
+//     {name: 'Bob', age: 35}
+//     ];
+
+//     const employeeName = employees.map((names, x) => names = employees[x].name);
+//     console.log(employeeName);
+
+//     // 4
+//     const numbers = [1,2,3,4];
+//     const multipliedArray = numbers.map((num, x) => num*x)
+//     console.log(multipliedArray);
+
+//     // 5
+//     const input = [
+//         {
+//             name: 'jhon',
+//             age: 13
+//         },
+//         {
+//             name: 'mark',
+//             age: 56
+//         },
+//         {
+//             name: 'rachel',
+//             age: 45
+//         },
+//         {
+//             name: 'nate',
+//             age: 67
+//         },
+//         {
+//             name: 'jeniffer',
+//             age: 65
+//         },
+//     ];
+
+//     const ages = input.map((age, x) => age = input[x].age);
+//     console.log(ages);
+//     const newAges = [Math.min(...ages),Math.max(...ages),Math.max(...ages)-Math.min(...ages)]
+    
+//     console.log(newAges);
+    
+// 1
+const nums = [1, 2, 3];
+let sum = 0;
+ nums.forEach((num) => sum += num);
+console.log(sum);
+
+// 2
+// A
+function doubleValues(array){
+array.forEach((num) => console.log(num*2));
 }
+doubleValues([1,2,3])
+
+// 3
+// A
+const words = ['hello', 'world', 'good', 'day'];
+// const test = words.map((word) => word.replace(/a|e|i|u|o/gi,'x'));
+// console.log(test);
+
+// 4
+const employees = [
+    { name: "John", age: 30,  isClubMember: true },
+    { name: "Jane", age: 15,  isClubMember: false },
+    { name: "Bob", age: 35,  isClubMember: true },
+   ];
+
+   function checkAge(array){
+    array.forEach((age, x) => {
+        if(employees[x].age < 20){
+            console.log(`${employees[x].name} at index ${x} is too young.`);
+        }
+    })
+
+   };
+   
+   
+   function updateEmployees(array) {
+       array.forEach((age, x) => {
+           if(employees[x].age > 25){
+               employees[x].isAdult = true;
+               console.log(employees[x]);
+            } else{
+                employees[x].isAdult = false;
+            }
+        })
+        
+    };
+    checkAge(employees);
+   updateEmployees(employees);
+   console.log(employees);
+
+//    EX3 - filter Practice
+// 1
+let a = [1, 2, 3, 4, 5, 6, 24];
+const even = a.filter(num => num%2 === 0);
+console.log(even);
+
+// 2
+const str = ['qwer','wsxecr','swedrfgtyh', 'asd','zasxdcfvgbh']
+function fiveAndGreaterOnly (array) {
+    const fiveAndGreater = array.filter(word => word.length > 4)
+    console.log(fiveAndGreater);
+};
+
+fiveAndGreaterOnly(str);
+
+// 3
+function filterClubMembers(array) {
+    const isMember = array.filter(person => person.isClubMember)
+    console.log(isMember);
+}
+
+filterClubMembers(employees);
+
+// EX3 - find Practice
+// 1
+const array1 = [5, 12, 8, 130, 44];
+const aboveTen = array1.find(num => num > 10);
+console.log(aboveTen);
+
+// 2
+const students = [ 
+    { name: 'John', age: 22 },
+      { name: 'Jane', age: 23 },
+      { name: 'Bob', age: 24 },
+      { name: 'Alice', age: 25 }
+   ]
+// A
+//    function findStudent (students, test) {
+//    const studentName = students.find(student => student.name===test);
+//     console.log(studentName);
+//    };
+//    findStudent(students, 'Bob');
+
+   function olderThan23 (array) {
+   const older = array.find(student => student.age > 23);
+    console.log('olderThan23', older);
+   };
+   olderThan23(students);
+
+//    EX3 - reduce Practice
+// 1
+
+const input2 = [-1, 4, 12, 0, -3, -29, -150];
+const test = input2.reduce((sum, num) => num > 0 ? sum +num : sum + 0 , 0)
+console.log(test);
+
+// 2
+function calcFactorial(x){
+    let array = [];
+    array.length = x + 1;
+    for (let i = 0; i < array.length ; i++){
+        array[i]=i
+    }
+    console.log(array);
+    const Factorial = array.reduce((sum,num) => num > 0 ? num*sum : sum*1 , 1);
+    console.log(Factorial);
+}
+calcFactorial(6);
+
+// 3
+// const findOldest = students.reduce((sum, {age}) =>{
+//     if ({age} > sum) return {age};
+//     return sum
+// },students.age);
+// console.log(findOldest);    
+
+// 4
+
